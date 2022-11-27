@@ -1,0 +1,11 @@
+{
+    "name": "exotic-industries-containers",
+    "version": "0.0.1",
+    "title": "Exotic Industries: Containers",
+    "author": "PreLeyZero",
+    "factorio_version": "1.1",
+    "description": "Adds different sized containers and warehouses in the Exotic-Industries optic.",
+    "dependencies": [
+        "base >= 1.0.0"
+    ]
+}
