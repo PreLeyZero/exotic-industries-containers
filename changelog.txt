@@ -1,5 +1,5 @@
 ---------------------------------------------------------------------------------------------------
-Version: 0.0.1
-Date: 2022-07-27
+Version: 0.0.2
+Date: 2022-12-03
   Features:
-    - First version
+    - made textures more saturated
