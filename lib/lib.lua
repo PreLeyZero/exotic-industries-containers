@@ -86,7 +86,7 @@ local order_dict = {
 --UTIL FUNCTIONS
 --====================================================================================================
 
-function ei_containers_lib.swith_recipe(old_recipe, new_recipes)
+function ei_containers_lib.switch_recipe(old_recipe, new_recipes)
     -- loop over all techs and look into their effects
     -- if the effect is a recipe unlock, check if it is the old recipe
     -- if it is, replace it with the new recipe
@@ -100,6 +100,26 @@ function ei_containers_lib.swith_recipe(old_recipe, new_recipes)
             end
         end
     end
+end
+
+
+function ei_containers_lib.swap_item_in_recipe(item, new_item)
+    -- loop over all recipes and look into their ingredients
+    -- if the ingredient is the item, replace it with the new item
+
+    for _, recipe in pairs(data.raw.recipe) do
+        -- account normal and expensive mode aswell
+        for _, difficulty in pairs({recipe.expensive or nil, recipe.normal or nil, recipe}) do
+            if difficulty.ingredients then
+                for _, ingredient in pairs(difficulty.ingredients) do
+                    if ingredient[1] == item then
+                        ingredient[1] = new_item
+                    end
+                end
+            end
+        end
+    end
+
 end
 
 
