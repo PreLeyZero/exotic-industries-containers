@@ -42,6 +42,7 @@ local entity_base = {
     -- inventory_type = "with_filters_and_bar",
     scale_info_icons = true,
     fast_replaceable_group = "container",
+    max_health = 350,
 }
 
 local item_base = {
