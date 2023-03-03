@@ -3,6 +3,7 @@ Version: 0.0.4
 Date: 02.03.2023
   Bugfixes:
     - Increased health of containers
+    - Swapped remaining vanilla chests for containers in recipes
 ---------------------------------------------------------------------------------------------------
 Version: 0.0.3
 Date: 01.02.2023
