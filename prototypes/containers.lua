@@ -98,8 +98,8 @@ ei_containers_lib.make_all(2, "filter", 200, 2, false, {
 
 ei_containers_lib.make_all(6, nil, 1000, 2, false, {
     {"ei_2x2-container", 4},
-    {"steel-plate", 100},
-    {"advanced-circuit", 10}
+    {"steel-plate", 50},
+    {"stone-brick", 25}
 })
 
 ei_containers_lib.make_all(6, "blue", 1000, 2, true, {
