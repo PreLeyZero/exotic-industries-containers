@@ -127,7 +127,7 @@ end
 function ei_containers_lib.add_bigger_containers()
     -- loop over all techs and look into their effects
     -- if the effect is a recipe unlock, check if it unlocks a 1x1_container
-    -- if so also add unlock for the 2x2 container
+    -- if so also add unlock for the 2x2 and 6x6 container
 
     local done = {}
 
@@ -145,13 +145,15 @@ function ei_containers_lib.add_bigger_containers()
                         log("Adding bigger container to tech: "..tech.name)
 
                         -- swap ei_1x1- with ei_2x2-
-                        local new_recipe =  "ei_2x2"..string.sub(effect.recipe, 7)
+                        local new_recipe_2x2 =  "ei_2x2"..string.sub(effect.recipe, 7)
+                        local new_recipe_6x6 =  "ei_6x6"..string.sub(effect.recipe, 7)
 
                         -- dont do stuff multiple times
-                        if not done[new_recipe] then
-                            table.insert(data.raw.technology[i].effects, {type = "unlock-recipe", recipe = new_recipe})
+                        if not done[new_recipe_2x2] then
+                            table.insert(data.raw.technology[i].effects, {type = "unlock-recipe", recipe = new_recipe_2x2})
+                            table.insert(data.raw.technology[i].effects, {type = "unlock-recipe", recipe = new_recipe_6x6})
 
-                            done[new_recipe] = true
+                            done[new_recipe_2x2] = true
                         end
                     end
                 end
@@ -240,16 +242,29 @@ function ei_containers_lib.make_container(size, slots, typus, animation)
     container.name = fullname
     container.icon = ei_containers_item_path..name..typename..".png"
 
+    image_size = 512
+    adjust = 1
+
+    if size > 2 then
+        image_size = 1024
+        adjust = 0.5
+    end
+
     -- size
     container.selection_box = {{-size/2, -size/2}, {size/2, size/2}}
     container.collision_box = {{-size/2+0.15, -size/2+0.15}, {size/2-0.15, size/2-0.15}}
 
     -- picture
     container.picture.layers[1].filename = ei_containers_entity_path..name..typename..".png"
-    container.picture.layers[2].filename = ei_containers_entity_path..name.."_shadow.png"
+    container.picture.layers[1].width = image_size
+    container.picture.layers[1].height = image_size
 
-    container.picture.layers[1].scale = 0.13*size
-    container.picture.layers[2].scale = 0.13*size
+    container.picture.layers[2].filename = ei_containers_entity_path..name.."_shadow.png"
+    container.picture.layers[2].width = image_size
+    container.picture.layers[2].height = image_size
+
+    container.picture.layers[1].scale = 0.13*size*adjust
+    container.picture.layers[2].scale = 0.13*size*adjust
 
     -- inventory
     container.minable.result = fullname
@@ -262,9 +277,9 @@ function ei_containers_lib.make_container(size, slots, typus, animation)
                 {
                     filename = ei_containers_entity_path..name..typename..".png",
                     priority = "extra-high",
-                    width = 256*2,
-                    height = 256*2,
-                    scale = 0.13*size,
+                    width = image_size,
+                    height = image_size,
+                    scale = 0.13*size*adjust,
                     frame_count = 1,
                     line_length = 1,
                     animation_speed = 1,
@@ -273,9 +288,9 @@ function ei_containers_lib.make_container(size, slots, typus, animation)
                 {
                     filename = ei_containers_entity_path..name.."_beam.png",
                     priority = "extra-high",
-                    width = 256*2,
-                    height = 256*2,
-                    scale = 0.13*size,
+                    width = image_size,
+                    height = image_size,
+                    scale = 0.13*size*adjust,
                     frame_count = 5,
                     line_length = 5,
                     animation_speed = 1,
@@ -284,9 +299,9 @@ function ei_containers_lib.make_container(size, slots, typus, animation)
                 {
                     filename = ei_containers_entity_path..name.."_shadow.png",
                     priority = "extra-high",
-                    width = 256*2,
-                    height = 256*2,
-                    scale = 0.13*size,
+                    width = image_size,
+                    height = image_size,
+                    scale = 0.13*size*adjust,
                     draw_as_shadow = true,
                     frame_count = 1,
                     line_length = 1,

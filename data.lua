@@ -27,5 +27,11 @@ data:extend({
         name = "ei_containers-2x2",
         group = "logistics",
         order = "a-b"
+    },
+    {
+        type = "item-subgroup",
+        name = "ei_containers-6x6",
+        group = "logistics",
+        order = "a-c"
     }
 })
