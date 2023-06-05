@@ -40,3 +40,8 @@ table.insert(data.raw["technology"]["steel-processing"].effects, {
     type = "unlock-recipe",
     recipe = "ei_2x2-container_filter"
 })
+
+table.insert(data.raw["technology"]["steel-processing"].effects, {
+    type = "unlock-recipe",
+    recipe = "ei_6x6-container_filter"
+})
