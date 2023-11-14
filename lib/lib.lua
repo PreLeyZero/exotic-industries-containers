@@ -316,8 +316,6 @@ function ei_containers_lib.make_container(size, slots, typus, animation)
     if typus then
         if typus == "filter" then
             container.inventory_type = "with_filters_and_bar"
-            -- also only 18 slots
-            container.inventory_size = 18
         end
         -- TODO add animations
 
