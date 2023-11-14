@@ -38,7 +38,7 @@ ei_containers_lib.make_all(1, "green", 48, 2, false, {
     {"advanced-circuit", 1}
 })
 
-ei_containers_lib.make_all(1, "filter", 48, 2, false, {
+ei_containers_lib.make_all(1, "filter", 18, 2, false, {
     {"ei_1x1-container", 1},
     {"electronic-circuit", 1}
 })
@@ -87,7 +87,7 @@ ei_containers_lib.make_all(2, "green", 200, 2, true, {
     {"steel-plate", 5}
 })
 
-ei_containers_lib.make_all(2, "filter", 200, 2, false, {
+ei_containers_lib.make_all(2, "filter", 75, 2, false, {
     {"ei_2x2-container", 1},
     {"electronic-circuit", 10}
 })
@@ -137,7 +137,7 @@ ei_containers_lib.make_all(6, "green", 1000, 2, true, {
     {"steel-plate", 10}
 })
 
-ei_containers_lib.make_all(6, "filter", 1000, 2, false, {
+ei_containers_lib.make_all(6, "filter", 375, 2, false, {
     {"ei_6x6-container", 1},
     {"electronic-circuit", 20}
 })
